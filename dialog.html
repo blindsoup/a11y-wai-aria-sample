@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Title</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <input type="text" id="www">
+    <!-- Button trigger modal -->
+    <form>
+        <fieldset>
+        <div>
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId"
+                id="dialog-button">
+                Launch
+            </button>
+        </div>
+        </fieldset>
+    </form>
+    Modal
+    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Body
+                    <input type="text" id="koko">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="dialog-save" type="button" data-dismiss="modal" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="text" id="inputfield">
+    <dialog>
+        <p>dialog test</p>
+        <button id="close">close</button>
+    </dialog>
+    <button id="open">open</button>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="./node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            var dialog = document.querySelector('dialog');
+            $('#open').on('click', function (e) {
+                dialog.showModal();
+            });
+            $('#close').on('click', function (e) {
+                dialog.close();
+            })
+            $('#dialog-save').on('click', function (e) {
+                $('#inputfield').val($('#koko').val());
+            })
+            $('#dialog-button').on('click', function (e) {
+                $('#koko').val($('#www').val());
+            })
+        })
+
+    </script>
+
+</body>
+
+</html>a

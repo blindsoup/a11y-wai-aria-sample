@@ -1,0 +1,144 @@
+<head>
+<style>
+[role="tooltip"] {
+    background: orange;
+    color: white;
+    padding: 0.25em;
+    display: none;
+}
+input:focus + [role="tooltip"] {
+    display: block;
+}
+[aria-hidden] {
+    display: none;
+}
+[aria-hidden="false"] {
+    display: block;
+}
+[aria-expanded]:before {
+    content: '\25ba\0020';
+}
+[aria-expanded="true"]:before {
+    content: '\25bc\0020';
+}
+</style>
+</head>
+<h2>aria-label</h2>
+<button aria-label="元に戻す">&#xD000;</button>
+<p>直前の操作を元に戻すには<strong id="undo-text">元に戻す</strong>ボタンを押します。</p>
+<button aria-labelledby="undo-text">&#xE000;</button>
+<ul>
+  <li>
+    <a href="#submenu" aria-haspopup="true" aria-controls="submenu">メインリンク</a>
+    <ul id="submenu">
+      <li><a href="/somehwere/">サブメニューリンク</a></li>
+      <li><a href="/somehwere/else/">もうひとつのリンク</a></li>
+    </ul>
+  </li>
+</ul>
+<div role="toolbar" aria-label='並び替え' aria-controls="sortable">
+  <button aria-pressed="true">昇順</button>
+  <button aria-pressed="false">降順</button>
+</div>
+
+<ul id="sortable" tabindex='-1'>
+  <li>Fiddler crab（シオマネキ）</li>
+  <li>Hermit crab（ヤドカリ）</li>
+  <li>Red crab（コシオレガニ）</li>
+  <li>Robber crab（ヤシガニ）</li>
+  <li>Sponge crab（カイカムリ）</li>
+  <li>Yeti crab（キワ・ヒルスタ）</li>
+</ul>
+
+<form>
+  <fieldset>
+    <legend>ログインフォーム</legend>
+    <div>
+      <label for="username">ユーザー名</label>
+      <input id="username" type="text" aria-describedby="username-hint">
+      <div role="tooltip" id="username-hint">ユーザー名には、あなたのEメールアドレスを登録してください</div>
+    </div>
+    <div>
+      <label for="password">パスワード</label>
+      <input id="password" type="password" aria-describedby="password-hint">
+      <div role="tooltip" id="password-hint">メールでお送りしたパスワードを入れてください</div>
+    </div>
+  </fieldset>
+  <button type="submit">サイトに入る</button>
+</form>
+
+<h2><button aria-expanded="false" aria-controls="howdo-I-change-my-password">パスワードはどのように変更するのですか？</button></h2>
+<div id="how-do-I-change-my-password" aria-hidden="true">
+  <p>それは、<a href="http://example.com">リンク</a>を…</p>
+  <p>…ください。</p>
+</div>
+<div role="navigation" aria-label="Primary">
+<ul><li>...a list of links here ...</li></ul> </div>
+<div role="navigation" aria-label="Secondary">
+<ul><li>...a list of links here ...</li> </ul></div>
+<hr>
+<div role="region" aria-label="weather portlet"> 
+...
+</div></button>
+
+<hr>
+<div role="img" aria-labelledby="star_id">
+<img src="fullstar.png" alt=""/>
+<img src="fullstar.png" alt=""/>
+<img src="fullstar.png" alt=""/>
+<img src="fullstar.png" alt=""/>
+<img src="emptystar.png" alt=""/>
+</div>
+
+<div id="star_id">4 of 5</div>
+
+<a href="home.html">
+  <img src="house.gif" alt="home page icon">
+  Go to the home page
+</a>     
+ <a href="products.html">
+   <img src="icon.gif" alt="">
+   Products page
+ </a>      
+ 
+ <br>
+ 
+ <img src="ladymacbeth.jpg" alt="Lady MacBeth" aria-describedby="p1">
+
+<p id="p1">This painting dates back to 1730 and is oil on canvas. It was created by 
+
+<p><span tabindex="0">フォーカスハイライト</span>.need to you.</span></p>
+
+<p>
+<input type="text" name="name" id="name" aria-required="true">
+
+<br>
+<input type="number" name="age" id="age" aria-required="true" placeholder="１から１５０までです。">
+</p>
+<div data-message="This is from the first button" tabindex="0" role="button">Click me!</div>
+
+<h2>タブ</h2>
+
+<ul role="tablist">
+  <li class="active" role="tab" aria-selected="true" aria-setsize="3" aria-posinset="1" tabindex="0">Tab 1</li>
+  <li role="tab" aria-selected="false" aria-setsize="3" aria-posinset="2" tabindex="0">Tab 2</li>
+  <li role="tab" aria-selected="false" aria-setsize="3" aria-posinset="3" tabindex="0">Tab 3</li>
+</ul>
+<div class="panels">
+  <article class="active-panel" role="tabpanel" aria-hidden="false">
+    ...
+  </article>
+  <article role="tabpanel" aria-hidden="true">
+    ...
+  </article>
+  <article role="tabpanel" aria-hidden="true">
+    ...
+  </article>
+</div>
+</h2>
+<div role="heading" aria-level="7">h7</div>
+
+名前： <input type="text"/>
+<br/>
+<label for="namefield">名前：</label>
+<input type="text" id="namefield" name="namefield"/>

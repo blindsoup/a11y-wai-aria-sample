@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>tab</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        [aria-hidden] {
+            display: none;
+        }
+
+        [aria-hidden="false"] {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="p-3">
+        <h2>tab sample</h2>
+        <ul class="nav nav-tabs" id="tablist">
+            <li class="nav-item">
+                <a href="#tab1" class="nav-link">tab1</a>
+            </li>
+            <li class="nav-item">
+                <a href="#tab2" class="nav-link">tab2</a>
+            </li>
+            <li class="nav-item">
+                <a href="#tab3" class="nav-link">tab3</a>
+            </li>
+            <li class="nav-item">
+                <a href="#tab4" class="nav-link">tab4</a>
+            </li>
+        </ul>
+
+        <div id="tabcontent">
+            <section id="tab1">
+                <h3>tab1</h3>
+                <p>tab1 content</p>
+            </section>
+            <section id="tab2">
+                <h3>tab2</h3>
+                <p>tab 2 content</p>
+            </section>
+            <section id="tab3">
+                <h3>tab3</h3>
+                <p>tab3 content</p>
+            </section>
+            <section id="tab4">
+                <h3>tab4</h3>
+                <p>tab4 content</p>
+            </section>
+        </div>
+    </main>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="./node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            var tab = $('#tablist li a'),
+                tabpanel = $('#tabcontent section');
+            $('#tablist').attr('role', 'tablist');
+            tab.each(function (i, e) {
+                $(e).parent().attr('role', 'presentation');
+                $(e).attr({ 'role': 'tab', 'aria-selected': 'false', 'aria-controls': $(e).attr('href').slice(1), 'tabindex': '-1' });
+            });
+            tabpanel.each(function (i, e) {
+                $(e).attr({ 'role': 'tabpanel', 'aria-hidden': 'true' });
+                $(e).children().eq(0).attr('tabindex', 0);
+            });
+            tab.eq(0).attr({ 'aria-selected': 'true', 'tabindex': '0' });
+            tabpanel.eq(0).attr('aria-hidden', 'false');
+
+            // tab切り替えの実装
+            tab.on('click', function (e) {
+                var _self = $(this),
+                    select = _self.attr('aria-selected'),
+                    id_ = _self.attr('aria-controls'),
+                    id = $('#' + id_);
+                if (select === 'true') {
+                    return false;
+                }
+                tab.attr({ 'aria-selected': 'false', 'tabindex': '-1' });
+                tabpanel.attr('aria-hidden', 'true');
+                _self.attr({ 'aria-selected': 'true', 'tabindex': '0' });
+                id.attr('aria-hidden', 'false');
+            })
+
+            // タブ内で矢印キーが押されたとき
+            tab.on('keydown', function(e){
+                var key = e.keyCode, target = null;
+                if(key == 37 || key == 38){
+                    target = $(this).parent().prev().children('a');
+                }
+                else if(key == 39 || key == 40){
+                   target = $(this).parent().next().children('a');
+                }
+                $(target).focus();
+            })
+        })
+    </script>
+</body>
+
+</html>

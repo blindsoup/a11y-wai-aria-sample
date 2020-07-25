@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Titleform</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        [role="tooltip"] {
+            background: orange;
+            color: white;
+            padding: 0.25em;
+            display: none;
+        }
+
+        input:focus+[role="tooltip"] {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>form</h2>
+    <form>
+        <fieldset>
+            <legend>ログインフォーム</legend>
+            <div class="form-group">
+                <label for="username">ユーザー名</label>
+                <input id="username" type="text" class="form-control" aria-describedby="username-hint">
+                <div role="tooltip" id="username-hint" class="form-text">ユーザ名は、あなたのメールアドレスを登録してください。</div>
+            </div>
+            <div class="form-group">
+                <label for="password">パスワード</label>
+                <input id="password" type="password" class="form-control" aria-describedby="password-hint">
+                <div role="tooltip" id="password-hint" class="form-text">メールに記載された仮パスワードを入力してください。</div>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" id="check1" class="form-check-inline">
+                <label for="check1" class="form-check-label">1</label>
+            </div>
+        </fieldset>
+        <button type="submit">サイトに入る</button>
+    </form>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="./node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

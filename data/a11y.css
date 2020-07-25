@@ -1,0 +1,40 @@
+        [role="tooltip"] {
+            background: orange;
+            color: white;
+            padding: 0.25em;
+            display: none;
+        }
+
+        input:focus+[role="tooltip"] {
+            display: block;
+        }
+
+                [aria-hidden] {
+            display: none;
+        }
+
+        [aria-hidden="false"] {
+            display: block;
+        }
+
+        [aria-expanded]:before {
+            content: '\25ba\0020';
+        }
+
+        [aria-expanded="true"]:before {
+            content: '\25bc\0020';
+        }
+
+section > section:first-child:after {
+    background: red;
+    color: #fff;
+    content: '警告：sectionがdivのように使われているようです。各sectionに見出しを追加しましょう。';
+}
+[role="status"]:not([aria-live="polite"]),
+[role="alert"]:not([aria-live="assertive"]) {
+    content: '警告：より広範なサポートを提供するために、aria-live属性を使って、ライブリージョンにポライトネスを追加しましょう';
+}
+[aria-live="polite"]:not([role="status"]),
+[aria-live="assertive"]:not([role="alert"]) {
+    content: '警告：より広範なサポートを提供するために、aria-liveのポライトネス設定に対応したロールを追加しましょう';
+}

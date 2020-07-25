@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Titleform</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        [aria-hidden] {
+            display: none;
+        }
+
+        [aria-hidden="false"] {
+            display: block;
+        }
+
+        [aria-expanded]:before {
+            content: '\25ba\0020';
+        }
+
+        [aria-expanded="true"]:before {
+            content: '\25bc\0020';
+        }
+    </style>
+</head>
+
+<body>
+    <h1>expanded faq</h1>
+    <p><a href="#navigation" id="menu-btn">menu</a></p>
+    <p>Last Modified: __</p>
+    <nav role="navigation" id="navigation">
+        <ul>
+            <li><a href="./index.html">home</a></li>
+            <li><a href="./toolbar.html">toolbar</a></li>
+            <li><a href="./tab.html">tab</a></li>
+            <li><a href="./css-test.html">css test</a></li>
+        </ul>
+    </nav>
+
+    <h2>faq</h2>
+    <section id="faq">
+        <h3>パスワードはどのように変更するのですか？</h3>
+        <div>
+            <p>a</p>
+            <p>b</p>
+        </div>
+        <h3>メールアドレスを変えるにはどうすればよいですか？</h3>
+        <div>
+            <p>c</p>
+            <p>d</p>
+        </div>
+        <h3>退会方法は？</h3>
+        <div>
+            <p>e</p>
+            <p>f</p>
+        </div>
+    </section>
+
+    <script src="./node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="./node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $('#menu-btn').attr({'role': 'button', 'aria-controls': 'navigation', 'aria-expanded': 'false'});
+            $('#navigation').attr('aria-hidden', 'true');
+            $('#menu-btn').on('click', function(){
+                var bool = ($(this).attr('aria-expanded') === 'true')?'false':'true';
+                var flag = (bool === 'true')?'false':'true';
+                $(this).attr('aria-expanded', bool);
+                $('#navigation').attr('aria-hidden', flag);
+                return false;
+            });
+            $('#faq > div').each(function (i, e) {
+                $(e).attr('id', 'faq-' + i);
+                $(e).attr('aria-hidden', 'true');
+            });
+            $('#faq > h3').each(function (i, e) {
+                $(e).wrapInner('<button aria-expanded="false" aria-controls="' + $(e).next().attr('id') + '"></button>');
+            });
+            $('#faq > h3 button').on('click', function (e) {
+                var bool = ($(this).attr('aria-expanded') === 'true') ? 'false' : 'true';
+                var flag = (bool === 'true') ? 'false' : 'true';
+                $(this).attr('aria-expanded', bool);
+                $(this).parent().next().attr('aria-hidden', flag);
+            });
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>zip search</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./data/a11y.css">
+    <script src="./data/lib.preflist.js"></script>>
+</head>
+
+<body>
+    <h2>郵便番号から住所を自動取得</h2>
+    <form>
+        <fieldset>
+            <legend>基本情報</legend>
+            <div class="form-group">
+                <label for="name">名前</label>
+                <input type="text" id="name" name="name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="name-kana">名前（カナ）</label>
+                <input type="text" id="name-kana" name="name-kana" class="form-control" />
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>性別</legend>
+            <div class="form-check">
+                <input type="checkbox" id="m" name="sex[]" class="form-check-inline" />
+                <label for="m">男</label>
+                <input type="checkbox" id="f" name="sex[]" class="form-check-inline" />
+                <label for="f">女</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>住所</legend>
+            <div class="form-group">
+                <label for="zipcode1">郵便番号</label>
+                <input type="text" id="zipcode1" name="zipcode1" class="form-control-sm" maxlength="3"
+                    aria-describedby="zipcode-hint" /> -
+                <input type="text" id="zipcode2" name="zipcode2" class="form-control-sm" maxlength="4"
+                    aria-describedby="zipcode-hint" />
+                <div role="tooltip" id="zipcode-hint" class="form-text">７桁の郵便番号を半角数字で入力してください。</div>
+            </div>
+            <div class="form-group" id="preflist">
+            </div>
+            <div class="form-group" aria-live="assertive">
+                <label for="address1">市区町村</label>
+                <input type="text" id="address1" name="address1" class="form-control-sm" />
+            </div>
+            <div class="form-group">
+                <label for="address2">それ以降の住所</label>
+                <input type="text" id="address2" name="address2" class="form-control-sm" />
+            </div>
+        </fieldset>
+        <button id="submit" type="button">確定</button>
+    </form>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            var zipcode1 = $('#zipcode1'),
+                zipcode2 = $('#zipcode2'),
+                prf = $('#prf'),
+                address1 = $('#address1'),
+                address2 = $('#address2');
+            // 郵便番号から住所を取得
+            var getAddress = function () {
+                var c1 = zipcode1.val(), c2 = zipcode2.val(), code = c1 + c2;
+                if (/^\d{7}$/.test(code) && c1.length == zipcode1.attr('maxlength') && c2.length == zipcode2.attr('maxlength')) {
+                    $.ajax({
+                        url: 'https://zipcoda.net/api',
+                        type: 'get',
+                        dataType: 'jsonp',
+                        timeout: 5000,
+                        data: {
+                            zipcode: code
+                        },
+                        success: function (o) {
+                            if (o.status == 'success') {
+                                var res = o.items[0].components;
+                                $('#preflist select').val(o.items[0].state);
+                                address1.val(res[1] + res[2]);
+                            }
+                        }
+                    })
+                }
+            }
+            var nextFocus = function () {
+                var code = zipcode1.val();
+                if (code.length == zipcode1.attr('maxlength') && /^\d{3}$/.test(code)) {
+                    zipcode2.focus();
+                }
+            }
+            getPrefList('preflist', '都道府県');
+
+            zipcode1.on({
+                change: getAddress,
+                keyup: nextFocus,
+            });
+            zipcode2.on('change', getAddress);
+            $('#submit').on({
+                'click': btnevt.click,
+                'focus': btnevt.focus,
+            })
+        })
+
+        // ボタン専用関数
+        var btnevt = {
+            click: function () {
+                alert('clicked!');
+            },
+            focus: function () {
+                alert('focused!');
+            }
+        }
+    </script>
+</body>
+
+</html>
