@@ -76,7 +76,7 @@
                 var c1 = zipcode1.val(), c2 = zipcode2.val(), code = c1 + c2;
                 if (/^\d{7}$/.test(code) && c1.length == zipcode1.attr('maxlength') && c2.length == zipcode2.attr('maxlength')) {
                     $.ajax({
-                        url: 'https://zipcoda.net/api',
+                        url: 'https://zipcloud.ibsnet.co.jp/api/search',
                         type: 'get',
                         dataType: 'jsonp',
                         timeout: 5000,
@@ -84,10 +84,10 @@
                             zipcode: code
                         },
                         success: function (o) {
-                            if (o.status == 'success') {
-                                var res = o.items[0].components;
-                                $('#preflist select').val(o.items[0].state);
-                                address1.val(res[1] + res[2]);
+                            if (o.status === 200){
+                                const res = o.results[0];
+                                $('#preflist select').val(res.prefcode);
+                                address1.val(res.address1 + res.address2 + res.address3);
                             }
                         }
                     })
