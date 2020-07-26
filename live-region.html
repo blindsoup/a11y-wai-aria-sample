@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>aria-live</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <h1>A11y-wai-aria-sample</h1>
+    <h2>aria-live</h2>
+    <h3>polite status</h3>
+    <div>
+        <p>aria-live="polite" role="status"は、アイドル状態になってから更新内容を通知する。</p>
+        <button type="button" class="action">更新</button>
+        <button type="button" class="clear">クリア</button>
+    </div>
+    <div class="message" aria-live="polite" role="status"></div>
+
+    <h3>assertive alert</h3>
+    <div>
+        <p>aria-live="assertive" role="alert"は、直ちに通知する。</p>
+        <p>NVDA+Firefoxでは「アラート」という警告とともに割り込んで即座に読まれる。NVDA+Chromeの場合は、politeと挙動が変わらなかった。</p>
+        <button type="button" class="action">更新</button>
+        <button type="button" class="clear">クリア</button>
+    </div>
+    <div class="message" id="message2" aria-live="assertive" role="alert"></div>
+
+    <h3>role="timer"</h3>
+    <div>
+        <p>経過時間・残り時間を含むライブ領域であることを支援技術に示す。暗黙的にaria-live属性はoff。</p>
+        <p>このroleが直接的にスクリーンリーダーの読みに影響を与えることはなかった（NVDA+Chrome|Firefox）。</p>
+        <button type="button" id="start-countdown">開始</button>
+        <button type="button" id="stop-countdown">ストップ</button>
+    </div>
+    <div role="timer" aria-label="カウントダウンタイマー" id="timer"></div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="./node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        $(function() {
+            const message = `<p>メッセージ内容です。</p><p>メッセージが更新されるとスクリーンリーダーがそのテキストを通知します。</p>   `
+            let timer = null
+            let count = 10
+
+            $('.action').click(e => {
+                setTimeout(() => $(e.currentTarget).parent().next().append(message), 2000)
+            })
+            $('.clear').click(e => $(e.currentTarget).parent().next().text(''))
+
+            $('#start-countdown').click(() => {
+                timer = setInterval(() => {
+                    count--;
+                    $('#timer').text(count)
+                    if(count === 0){
+                        clearInterval(timer)
+                        count = 10
+                    }
+                }, 1000)
+            })
+            $('#stop-countdown').click(() => {
+                clearInterval(timer)
+                count = 10
+            })
+        })
+    </script>
+</body>
+
+</html>
