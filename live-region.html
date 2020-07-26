@@ -18,19 +18,150 @@
     <h3>polite status</h3>
     <div>
         <p>aria-live="polite" role="status"は、アイドル状態になってから更新内容を通知する。</p>
+        <p>（基本的には）互換性を最大限に保つために、aria-liveとroleは両方指定するのが望ましい。</p>
+    </div>
+
+    <h4>Sample</h4>
+    <h5>Sample1</h5>
+    <div>
+        <p>aria-liveとrole両方指定。</p>
         <button type="button" class="action">更新</button>
         <button type="button" class="clear">クリア</button>
     </div>
     <div class="message" aria-live="polite" role="status"></div>
 
+    <details>
+        <summary>コード</summary>
+        <code><pre>
+&lt;div role="status" aria-live="polite"&gt;
+    message hoge
+&lt;/div&gt;
+        </pre></code>
+    </details>
+
+    <details>
+        <summary>読まれ方</summary>
+        <p>メッセージ内容を<code>x</code>とし、読み方を記述。</p>
+        <ul>
+            <li>NVDA + Chrome: x</li>
+            <li>NVDA + Firefox: x</li>
+            <li>NVDA + Edge: （読まない）</li>
+            <li>PC-Talker + Chrome: x</li>
+            <li>PC-Talker + Firefox: （読まない）</li>
+            <li>PC-Talker + Netreader Neo: x</li>
+            <li>VoiceOver + Safari: x</li>
+            <li>VoiceOver + Chrome: x</li>
+            <li>VoiceOver + Firefox: x</li>
+            <li>VoiceOver + Edge: x</li>
+            <li>Talk Back + Chrome: x ステータス x</li>
+            <li>Talk Back + Firefox: （読まない）</li>
+            <li>Talk Back + Edge: x ステータス x</li>
+        </ul>
+    </details>
+
+    <h5>Sample2</h5>
+    <div>
+        <p>aria-liveのみ指定した場合。</p>
+        <button type="button" class="action">更新</button>
+        <button type="button" class="clear">クリア</button>
+    </div>
+    <div class="message" aria-live="polite"></div>
+
+    <details>
+        <summary>コード</summary>
+        <code><pre>
+&lt;div aria-live="polite">
+    message hoge
+&lt;/div&gt;
+        </pre></code>
+    </details>
+
+    <details>
+        <summary>読まれ方</summary>
+        <p>メッセージ内容を<code>x</code>とし、読み方を記述。</p>
+        <ul>
+            <li>NVDA + Chrome: x</li>
+            <li>NVDA + Firefox: x</li>
+            <li>NVDA + Edge: x</li>
+            <li>PC-Talker + Chrome: x</li>
+            <li>PC-Talker + Firefox: （読まない）</li>
+            <li>PC-Talker + Netreader Neo: x</li>
+            <li>VoiceOver + Safari: x</li>
+            <li>VoiceOver + Chrome: x</li>
+            <li>VoiceOver + Firefox: x</li>
+            <li>VoiceOver + Edge: x</li>
+            <li>Talk Back + Chrome: x x</li>
+            <li>Talk back + Firefox: x</li>
+            <li>Talk Back + Edge: x x</li>
+        </ul>
+    </details>
+
+    <h5>Sample3</h5>
+    <div>
+        <p>roleのみ指定した場合。</p>
+        <button type="button" class="action">更新</button>
+        <button type="button" class="clear">クリア</button>
+    </div>
+    <div class="message" role="status"></div>
+
+    <details>
+        <summary>コード</summary>
+        <code><pre>
+&lt;div role="status">
+    message hoge
+&lt;/div&gt;
+        </pre></code>
+    </details>
+
+    <details>
+        <summary>読まれ方</summary>
+        <p>メッセージ内容を<code>x</code>とし、読み方を記述。</p>
+        <ul>
+            <li>NVDA + Chrome: x</li>
+            <li>NVDA + Firefox: x</li>
+            <li>NVDA + Edge: （読まない）</li>
+            <li>PC-Talker + Chrome: （読まない）</li>
+            <li>PC-Talker + Firefox: （読まない）</li>
+            <li>PC-Talker + Netreader Neo: x</li>
+            <li>VoiceOver + Safari: x</li>
+            <li>VoiceOver + Chrome: x</li>
+            <li>VoiceOver + Firefox: x</li>
+            <li>VoiceOver + Edge: x</li>
+            <li>Talk Back + Chrome: x ステータス x</li>
+            <li>Talk Back + Firefox: （読まない）</li>
+            <li>Talk Back + Edge: ステータス x x</li>
+        </ul>
+    </details>
+
+
+
     <h3>assertive alert</h3>
     <div>
         <p>aria-live="assertive" role="alert"は、直ちに通知する。</p>
-        <p>NVDA+Firefoxでは「アラート」という警告とともに割り込んで即座に読まれる。NVDA+Chromeの場合は、politeと挙動が変わらなかった。</p>
+    </div>
+    <h4>Sample1（推奨）</h4>
+    <div>
+        <p>aria-liveとrole両方指定した場合。</p>
         <button type="button" class="action">更新</button>
         <button type="button" class="clear">クリア</button>
     </div>
     <div class="message" id="message2" aria-live="assertive" role="alert"></div>
+
+    <h4>Sample2</h4>
+    <div>
+        <p>aria-liveのみ指定した場合。</p>
+        <button type="button" class="action">更新</button>
+        <button type="button" class="clear">クリア</button>
+    </div>
+    <div class="message" aria-live="assertive"></div>
+
+    <h4>Sample3</h4>
+    <div>
+        <p>roleのみ指定した場合。</p>
+        <button type="button" class="action">更新</button>
+        <button type="button" class="clear">クリア</button>
+    </div>
+    <div class="message" role="alert"></div>
 
     <h3>role="timer"</h3>
     <div>
