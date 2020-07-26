@@ -8,7 +8,8 @@
     <title>aria-live</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
@@ -41,9 +42,10 @@
     <div role="timer" aria-label="カウントダウンタイマー" id="timer"></div>
 
     <h3>role="progressbar"</h3>
-    <div>    
+    <div>
         <p>進行状況バー。role="progressbar"を使うと、テキストノードはスクリーンリーダーユーザ側からは読めなくなる。代わりに、aria-valuenow属性が更新されると、その値を読み上げる。</p>
-        <p>進行状況が更新されると、スクリーンリーダーがアイドル状態の時にその値が通知される（挙動としてはaria-live="polite"）。ただし、プログレスバーに重ねて、aria-live属性を示すのは誤りである。進行状況値を２重に読んでしまう。</p>
+        <p>進行状況が更新されると、スクリーンリーダーがアイドル状態の時にその値が通知される（挙動としてはaria-live="polite"）。ただし、プログレスバーに重ねて、aria-live属性を示すのは誤りである。進行状況値を２重に読んでしまう。
+        </p>
     </div>
     <div>
         <p>シンプルなプログレスバー。aria-valuenow、aria-valuemin、aria-valuemaxを使用。</p>
@@ -57,12 +59,18 @@
     </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="./node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script src="./node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 
     <script>
-        $(function() {
+        $(function () {
             const message = `<p>メッセージ内容です。</p><p>メッセージが更新されるとスクリーンリーダーがそのテキストを通知します。</p>   `
             let timer = null
             let count = 10
@@ -71,7 +79,7 @@
             let progress2_timer = null
             let progress2_value = 0
             let progress2_step = 0
-            let progress2_text = ['ステップ１：ダウンロードしています ... ','ステップ２：ファイルを展開しています ... ','ステップ３：準備しています ... ']
+            let progress2_text = ['ステップ１：ダウンロードしています ... ', 'ステップ２：ファイルを展開しています ... ', 'ステップ３：準備しています ... ']
 
             $('.action').click(e => {
                 setTimeout(() => $(e.currentTarget).parent().next().append(message), 2000)
@@ -82,7 +90,7 @@
                 timer = setInterval(() => {
                     count--;
                     $('#timer').text(count)
-                    if(count === 0){
+                    if (count === 0) {
                         clearInterval(timer)
                         count = 10
                     }
@@ -97,7 +105,7 @@
                 progress1_timer = setInterval(() => {
                     $('#progress1-region').text(progress1_value).attr('aria-valuenow', progress1_value)
                     progress1_value += 10
-                    if(progress1_value > 100){
+                    if (progress1_value > 100) {
                         clearInterval(progress1_timer)
                         progress1_value = 0
                     }
@@ -107,14 +115,14 @@
             $('#progress2-button').click(() => {
                 progress2_timer = setInterval(() => {
                     progress2_value += 20
-                    if(progress2_value > 100){
+                    if (progress2_value > 100) {
                         progress2_value = 0
                         progress2_step++
-                        if(progress2_step > 2){
+                        if (progress2_step > 2) {
                             clearInterval(progress2_timer)
                         }
                     }
-                    $('#progress2-region').text(progress2_text[progress2_step] + progress2_value).attr({'aria-valuetext': progress2_text[progress2_step], 'aria-valuenow': progress2_value})
+                    $('#progress2-region').text(progress2_text[progress2_step] + progress2_value).attr({ 'aria-valuetext': progress2_text[progress2_step], 'aria-valuenow': progress2_value })
                 }, 2000)
             })
         })
