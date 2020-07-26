@@ -5,51 +5,25 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Title</title>
+    <title>a11y-wai-aria-sample</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
 <body>
-<div class="alert alert-primary" role="alert">primary</div>
-<div class="alert alert-secondary" role="alert">secondary</div>
-<div class="alert alert-success" role="alert">success</div>
-<div class="alert alert-danger" role="alert">danger</div>
-<div class="alert alert-warning" role="alert">warning</div>
-<div class="alert alert-info" role="alert">info</div>
-<div class="alert alert-light" role="alert">light</div>
-<div class="alert alert-dark" role="alert">dark</div>
-<div class="alert alert-primary">
-    詳しくはは<a href="./wcag.html" class="alert-link">こちら</a>を参照してください。
-</div>
-<p><a href="#">デザート <span class="badge badge-secondary">5</span></a></p>
-<nav role="navigation" aria-label="パン屑リスト">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">a</a></li>
-        <li class="breadcrumb-item"><a href="#">b</a></li>
-        <li class="breadcrumb-item active" aria-current="page">c</li>
-    </ol>
-</nav>
-<button type="button" class="btn btn-primary active">アクティブ</button>
-<button type="button" class="btn btn-primary active" aria-pressed="true">アクティブ</button>
-<button type="button" class="btn btn-primary btn-lg" data-toggle="button" aria-pressed="false" autocomplete="off"></button>
-<div class="btn-group" role="group" aria-label="ボタングループ">
-    <button type="button" class="btn btn-primary">a</button>
-    <button type="button" class="btn btn-primary">b</buttoボタングループn>
-    <button type="button" class="btn btn-primary">c</button>
-</div>
-
-<ul class=''>
-    <li><a href='toolbar.html'>toolbar</a></li>
-    <li><a href="./tab.html">tab sample</a></li>
-    <li><a href="./css-test.html">css test</a></li>
-    <li><a href="./form.html">form</a></li>
-    <li><a href="./expanded-faq.html">faq</a></li>
-    <li><a href="./assert.html">assert</a></li>
-    <li><a href="./zip-search.html">zip-search</a></li>
-    <li><a href="./togglebutton.html">toggle</a></li>
-</ul>
+    <h1>a11y-wai-aria-sample</h1>
+    <nav aria-label="menu">
+        <ul>
+            <li><a href="./live-region.html">ライブリージョン</a></li>
+            <li><a href="./expanded-faq.html">折り畳み・展開FAQ</a></li>
+            <li><a href="./tab.html">タブ</a></li>
+            <!-- <li><a href='toolbar.html'>toolbar</a></li> -->
+            <!-- <li><a href="./css-test.html">css test</a></li> -->
+            <li><a href="./zip-search.html">zip-search</a></li>
+            <li><a href="./togglebutton.html">toggle</a></li>
+        </ul>
+    </nav>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="./node_modules/jquery/dist/jquery.slim.min.js"></script>
