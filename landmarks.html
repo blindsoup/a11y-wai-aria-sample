@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>landmark</title>
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>content title</h1>
+            <div>content description</div>
+        </div>
+    </header>
+
+    <main aria-labelledby="subtitle0">
+        <div>
+            <div>content top</div>
+            <div>
+                <h2 id="subtitle0">content subtitle0</h2>
+            </div>
+            <div>content1</div>
+            <div>content2</div>
+        </div>
+
+        <section aria-labelledby="subtitle1">
+            <div><a href="#">test:</a>content info</div>
+            <div>
+                <h2 id="subtitle1">sectionタグによる領域</h2>
+            </div>
+            <div>content3</div>
+            <div>content4</div>
+        </section>
+        <div role="region" aria-labelledby="subtitle2">
+            <div>content info</div>
+            <div>
+                <h2 id="subtitle2">role=regionの場合</h2>
+            </div>
+            <div>content5</div>
+            <div>content6</div>
+        </div>
+
+        <section title="subtitle3">
+            <div>content info</div>
+            <div>
+                <h2 id="subtitle3">sectionとtitle属性の場合</h2>
+            </div>
+            <div>content7</div>
+            <div>content8</div>
+        </section>
+    </main>
+</body>
+
+</html>
