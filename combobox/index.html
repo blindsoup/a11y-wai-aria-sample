@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>全体検索のサンプル</h2>
+    <input type="search" aria-expanded="false" aria-haspopup="listbox" aria-label="全体検索" aria-autocomplete="list"
+        role="combobox" placeholder="全体検索" class="input" aria-controls="menu">
+
+    <div role="listbox" class="menu" id="menu">
+        <div role="none" id="group-header-0">
+            ピープル
+        </div>
+        <ul role="none">
+            <li role="none" class="menuitem-container">
+                <div>
+                    <!-- 各グループの先頭のアイテムにのみ aria-labelledbyをつける。aria-labelledbyには、グループ名のidとアイテム自身のidを指定する -->
+                    <a href="#" role="option" class="menuitem" id="menuitem-0" tabindex="-1"
+                        aria-labelledby="group-header-0 menuitem-0">ボウズマン0</a>
+                    <a href="#" class="message" tabindex="-1">メッセージ</a>
+                </div>
+            </li>
+            <li role="none" class="menuitem-container">
+                <div>
+                    <a href="#" role="option" class="menuitem" id="menuitem-1" tabindex="-1">ボウズマン1</a>
+                    <a href="#" class="message" tabindex="-1">メッセージ</a>
+                </div>
+            </li>
+            <li role="none" class="menuitem-container">
+                <div>
+                    <a href="#" role="option" class="menuitem" id="menuitem-2" tabindex="-1">ボウズマン2</a>
+                    <a href="#" class="message" tabindex="-1">メッセージ</a>
+                </div>
+            </li>
+        </ul>
+
+        <div role="none" id="group-header-1">
+            スペース
+        </div>
+        <ul role="none">
+            <li role="none" class="menuitem-container">
+                <div>
+                    <!-- 各グループの先頭のアイテムにのみ aria-labelledbyをつける。aria-labelledbyには、グループ名のidとアイテム自身のidを指定する -->
+                    <a href="#" role="option" class="menuitem" id="menuitem-3" tabindex="-1"
+                        aria-labelledby="group-header-1 menuitem-3">スペース0</a>
+                </div>
+            </li>
+            <li role="none" class="menuitem-container">
+                <div>
+                    <a href="#" role="option" class="menuitem" id="menuitem-4" tabindex="-1">スペース1</a>
+                </div>
+            </li>
+            <li role="none" class="menuitem-container">
+                <div>
+                    <a href="#" role="option" class="menuitem" id="menuitem-5" tabindex="-1">スペース2</a>
+                </div>
+            </li>
+            <button role="option" class="menuitem" id="menuitem-6" tabindex="-1">
+                検索結果をさらに表示
+            </button>
+        </ul>
+    </div>
+    <script src="src.js"></script>
+</body>
+
+</html>

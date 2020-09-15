@@ -1,0 +1,11 @@
+.menuitem-selected:after {
+  content: "（選択中）";
+}
+
+.menuitem-container.hovered {
+  background: #ccc;
+}
+
+.message:hover {
+  background: #ccc;
+}
