@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu role</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>menu role</h2>
+    <button type="button" aria-expanded="false" aria-haspopup="true" class="button">メニューを開く</button>
+    <div class="popup">
+        <ul role="menu" class="menu">
+            <li role="none">
+                <a href="#" role="menuitem" class="menuitem" id="menuitem-0" tabindex="-1">メニュー項目0</a>
+            </li>
+            <li role="none">
+                <a href="#" role="menuitem" class="menuitem" id="menuitem-1" tabindex="-1">メニュー項目1</a>
+            </li>
+            <li role="none">
+                <a href="#" role="menuitem" class="menuitem" id="menuitem-2" tabindex="-1">メニュー項目2</a>
+            </li>
+        </ul>
+    </div>
+    <script src="src.js"></script>
+</body>
+
+</html>
