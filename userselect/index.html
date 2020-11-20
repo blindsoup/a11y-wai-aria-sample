@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ユーザ選択のサンプル</title>
+  </head>
+
+  <body>
+    <h1>ユーザ選択のサンプル</h1>
+    <div class="control-label">参加者</div>
+    <div class="control-value">
+      <button type="button" title="組織やグループから選択"></button>
+      <div class="entityselect-searchbox">
+        <div class="entityselect-searchbox-input">
+          <input type="text" placeholder="ユーザの検索" />
+        </div>
+        <div class="entityselect-searchbox-list"></div>
+      </div>
+      <div class="entity-list-container">
+        <ul class="entity-list"></ul>
+      </div>
+    </div>
+
+    <div class="dialog">
+      <div class="dialog-header">
+        <h2>ユーザを選択</h2>
+        <button type="button">close</button>
+      </div>
+      <ul role="tablist">
+        <li role="tab" aria-selected="true">組織</li>
+        <li role="tab" aria-selected="false">グループ</li>
+      </ul>
+      <div class="dialog-content" role="tabpanel">
+        <div class="dialog-content-directory">
+          <ul class="tree" role="tree">
+            <li role="presentation">
+              <button
+                type="button"
+                class="tree-item"
+                role="treeitem"
+                aria-expanded="false"
+                aria-checked="false"
+                aria-owns="tree-group-1"
+                tabindex="-1"
+              >
+                前者
+              </button>
+              <ul class="tree" id="tree-group-1" role="group" hidden>
+                <li role="presentation">
+                  <button
+                    type="button"
+                    class="tree-item"
+                    role="treeitem"
+                    aria-expanded="false"
+                    aria-checked="false"
+                    aria-owns="tree-group-1-1"
+                    tabindex="-1"
+                  >
+                    開発本部
+                  </button>
+                  <ul class="tree" id="tree-group-1-1" role="group" hidden>
+                    <li role="presentation">
+                      <button
+                        type="button"
+                        class="tree-item"
+                        role="treeitem"
+                        aria-checked="false"
+                        tabindex="-1"
+                      >
+                        フロントエンドエキスパート
+                      </button>
+                    </li>
+                    <li role="presentation">
+                      <button
+                        type="button"
+                        class="tree-item"
+                        role="treeitem"
+                        aria-checked="false"
+                        tabindex="-1"
+                      >
+                        デザイン＆リサーチ
+                      </button>
+                    </li>
+                  </ul>
+                </li>
+                <li role="presentation">
+                  <button
+                    type="button"
+                    class="tree-item"
+                    role="treeitem"
+                    aria-expanded="false"
+                    aria-checked="false"
+                    aria-owns="tree-group-1-2"
+                    tabindex="-1"
+                  >
+                    人事本部
+                  </button>
+                  <ul class="tree" id="tree-group-1-2" role="tree" hidden>
+                    <li role="presentation">
+                      <button
+                        type="button"
+                        class="tree-item"
+                        role="treeitem"
+                        aria-checked="false"
+                        tabindex="-1"
+                      >
+                        採用
+                      </button>
+                    </li>
+                    <li role="presentation">
+                      <button
+                        type="button"
+                        class="tree-item"
+                        role="treeitem"
+                        aria-checked="false"
+                        tabindex="-1"
+                      >
+                        育成
+                      </button>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li role="presentation">
+              <button
+                type="button"
+                class="tree-item"
+                role="treeitem"
+                aria-checked="false"
+                tabindex="-1"
+              >
+                東京オフィス
+              </button>
+            </li>
+            <li role="presentation">
+              <button
+                type="button"
+                class="tree-item"
+                role="treeitem"
+                aria-checked="false"
+                tabindex="-1"
+              >
+                大阪オフィス
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="dialog-content-list"></div>
+      </div>
+      <div class="dialog-footer">
+        <button type="button">キャンセル</button>
+        <button type="button">保存</button>
+      </div>
+    </div>
+
+    <script src="tree.js"></script>
+  </body>
+</html>
