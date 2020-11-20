@@ -34,6 +34,10 @@ function getAllButtonEls() {
   return document.querySelectorAll('.treeitem-button');
 }
 
+function getButtonEl(itemEl){
+  return itemEl.querySelector('..treeitem-button');
+}
+
 function getLinkEl(itemEl) {
   return itemEl.querySelector('a');
 }
@@ -87,6 +91,7 @@ function setExpanded(itemEl, expanded) {
     return;
   }
   itemEl.setAttribute('aria-expanded', expanded);
+  getButtonEl(itemEl).setAttribute('aria-expanded', expanded);
   const subTreeEl = getSubTreeEl(itemEl);
   if (expanded) {
     subTreeEl.removeAttribute('hidden');
