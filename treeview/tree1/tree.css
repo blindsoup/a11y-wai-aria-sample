@@ -1,0 +1,12 @@
+ul {
+  padding-left: 2rem;
+  list-style: none;
+}
+
+.tree {
+  width: 300px;
+}
+
+.treeitem:not([aria-expanded]) .treeitem-button {
+  display: none;
+}
