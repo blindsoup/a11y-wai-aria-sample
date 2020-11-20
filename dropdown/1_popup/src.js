@@ -6,14 +6,25 @@ const dropdownItemCount = document.querySelectorAll(".dropdown-item").length;
 
 const toggleDropdown = () => {
   if (expanded) {
+    buttonElement.setAttribute(
+      "aria-labelledby",
+      `dropdown-description dropdown-item-${selectedItemId}`
+    );
+    const dropdownItems = document.querySelectorAll(".dropdown-item");
+    dropdownItems.forEach((item) => {
+      item.setAttribute("aria-checked", false);
+      item.classList.remove("checked");
+    });
+    buttonElement.textContent = dropdownItems[selectedItemId].textContent;
+    dropdownItems[selectedItemId].setAttribute("aria-checked", true);
+    dropdownElement.removeAttribute("hidden");
     expanded = false;
-    // ドロップダウンアイテムのDOMを削除する
+    buttonElement.setAttribute("aria-expanded", false);
   } else {
     expanded = true;
-    // ドロップダウンのアイテムのDOMを追加する
-    // 動的に追加するときはaria-setsize/aria-posinsetの値を適切に設定する
+    dropdownElement.setAttribute("hidden", "hidden");
+    buttonElement.setAttribute("aria-expanded", true);
   }
-  buttonElement.setAttribute("aria-expanded", expanded);
 };
 
 const shouldChangeItem = (key) => {
@@ -48,17 +59,6 @@ const setSelectItemID = (key) => {
 };
 
 const changeSelectItem = (itemID) => {
-  const itemElements = dropdownElement.querySelectorAll(".dropdown-item");
-  itemElements.forEach((itemElement) => {
-    itemElement.removeAttribute("aria-selected");
-    itemElement.classList.remove("selected");
-  });
-  itemElements[itemID].setAttribute("aria-selected", true);
-  itemElements[itemID].classList.add("selected");
-  buttonElement.setAttribute(
-    "aria-labelledby",
-    `dropdown-description dropdown-item-${itemID}`
-  );
   buttonElement.setAttribute(
     "aria-activedescendant",
     `dropdown-item-${itemID}`
@@ -72,10 +72,12 @@ const handleKeyDown = (e) => {
     setSelectItemID(key);
     changeSelectItem(selectedItemId);
   }
+  if (shouldToggleDropdown(key)) {
+    toggleDropdown();
+  }
 };
 
 handleClick = (e) => {
-  dropdownElement.toggleAttribute("hidden");
   toggleDropdown();
 };
 

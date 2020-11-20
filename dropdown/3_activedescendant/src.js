@@ -1,7 +1,7 @@
 let expanded = false;
 let selectedItemId = -1;
-const buttonElement = document.querySelector(".dropdown-control");
-const dropdownItemCount = document.querySelectorAll(".dropdown-item").length;
+const dropdownElement = document.querySelector('.dropdown-control');
+const dropdownItemCount = document.querySelectorAll('.dropdown-item').length;
 
 const toggleDropdown = () => {
   if (expanded) {
@@ -12,33 +12,32 @@ const toggleDropdown = () => {
     // ドロップダウンのアイテムのDOMを追加する
     // 動的に追加するときはaria-setsize/aria-posinsetの値を適切に設定する
   }
-  buttonElement.setAttribute("aria-expanded", expanded);
+  dropdownElement.setAttribute('aria-expanded', expanded);
 };
 
 const shouldChangeItem = (key) => {
-  return (
-    key === "ArrowDown" || key === "ArrowUp" || key === "Home" || key === "End"
-  );
+  return key === 'ArrowDown' || key === 'ArrowUp' || key === 'Home' || key === 'End';
 };
 
 const shouldToggleDropdown = (key) => {
-  return key === " " || key === "Enter";
+  return key === ' ' || key === 'Enter';
 };
 
 const setSelectItemID = (key) => {
+  console.log(key);
   switch (key) {
-    case "ArrowDown":
+    case 'ArrowDown':
       selectedItemId++;
       if (selectedItemId >= dropdownItemCount) selectedItemId = 0;
       break;
-    case "ArrowUp":
+    case 'ArrowUp':
       selectedItemId--;
       if (selectedItemId < 0) selectedItemId = dropdownItemCount - 1;
       break;
-    case "Home":
+    case 'Home':
       selectedItemId = 0;
       break;
-    case "End":
+    case 'End':
       selectedItemId = dropdownItemCount - 1;
       break;
     default:
@@ -47,17 +46,14 @@ const setSelectItemID = (key) => {
 };
 
 const changeSelectItem = (itemID) => {
-  const itemElements = buttonElement.querySelectorAll(".dropdown-item");
+  const itemElements = dropdownElement.querySelectorAll('.dropdown-item');
   itemElements.forEach((itemElement) => {
-    itemElement.removeAttribute("aria-selected");
-    itemElement.classList.remove("selected");
+    itemElement.removeAttribute('aria-selected');
+    itemElement.classList.remove('selected');
   });
-  itemElements[itemID].setAttribute("aria-selected", true);
-  itemElements[itemID].classList.add("selected");
-  buttonElement.setAttribute(
-    "aria-activedescendant",
-    `dropdown-item-${itemID}`
-  );
+  itemElements[itemID].setAttribute('aria-selected', true);
+  itemElements[itemID].classList.add('selected');
+  dropdownElement.setAttribute('aria-activedescendant', `dropdown-item-${itemID}`);
 };
 
 const handleKeyDown = (e) => {
@@ -72,4 +68,4 @@ const handleKeyDown = (e) => {
   }
 };
 
-buttonElement.addEventListener("keydown", handleKeyDown);
+dropdownElement.addEventListener('keydown', handleKeyDown);
