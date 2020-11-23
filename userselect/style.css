@@ -1,4 +1,5 @@
-.tree li {
+.tree li,
+.dialog-listbox li {
   list-style-type: none;
 }
 

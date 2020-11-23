@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ユーザ選択のサンプル</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
@@ -147,7 +148,43 @@
             </li>
           </ul>
         </div>
-        <div class="dialog-content-list"></div>
+        <div class="dialog-content-list">
+          <ul class="dialog-listbox" role="listbox" aria-multiselectable="true" aria-label="ユーザ一覧">
+            <li role="presentation">
+              <label
+                ><input
+                  type="checkbox"
+                  class="dialog-list-item"
+                  role="option"
+                  aria-selected="false"
+                  tabindex="0"
+                />hoge</label
+              >
+            </li>
+            <li role="presentation">
+              <label.
+                ><input
+                  type="checkbox"
+                  class="dialog-list-item"
+                  role="option"
+                  aria-selected="false"
+                  tabindex="-1"
+                />foo</label.<i class="fas fa-font-awesome-logo-full    "></i>
+              >
+            </li>
+            <li role="presentation">
+              <label
+                ><input
+                  type="checkbox"
+                  class="dialog-list-item"
+                  role="option"
+                  aria-selected="false"
+                  tabindex="-1"
+                />bar</label
+              >
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="dialog-footer">
         <button type="button">キャンセル</button>
