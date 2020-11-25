@@ -5,7 +5,7 @@
 
   const getAllListItems = () => document.querySelectorAll(".dialog-list-item");
 
-  const getNewItemElement = (key) => {
+  const getNewItemID = (key) => {
     const listItemCount = getAllListItems().length;
     switch (key) {
       case "ArrowDown":
@@ -25,22 +25,25 @@
       default:
         break;
     }
-    return getAllListItems()[selectedID];
+    return selectedID;
   };
 
-  const setFocusable = (targetElement) => {
-    getAllListItems().forEach((element) =>
-      element.setAttribute("tabindex", -1)
+  const setTargetItem = (targetID) => {
+    getListboxElement().setAttribute(
+      "aria-activedescendant",
+      `dialog-list-item-${targetID}`
     );
-    targetElement.setAttribute("tabindex", 0);
-    targetElement.focus();
   };
 
-  const setSelected = (targetElement) => {
-    targetElement.setAttribute(
+  const handleClick = (e) => {
+    e.target.setAttribute(
       "aria-selected",
-      targetElement.getAttribute("aria-selected") === "true" ? false : true
+      e.target.getAttribute("aria-selected") === "true" ? false : true
     );
+  };
+
+  const setSelected = () => {
+    getAllListItems()[selectedID].click();
   };
 
   const handleKeydown = (e) => {
@@ -49,16 +52,21 @@
       case "ArrowUp":
       case "Home":
       case "End":
-        setFocusable(getNewItemElement(e.key));
+        setTargetItem(getNewItemID(e.key));
+        e.preventDefault();
         break;
       case " ":
       case "Enter":
-        setSelected(e.target);
+        setSelected();
+        e.preventDefault();
         break;
       default:
         break;
     }
   };
 
-  getListboxElement().addEventListener("keydown", handleKeydown);
+  getListboxElement().addEventListener("keydown", handleKeydown, true);
+  getAllListItems().forEach((element) =>
+    element.addEventListener("click", handleClick)
+  );
 })();

@@ -154,39 +154,47 @@
             role="listbox"
             aria-multiselectable="true"
             aria-label="ユーザ一覧"
+            aria-activedescendant="dialog-list-item-0"
+            tabindex="0"
           >
             <li role="presentation">
-              <label
-                ><input
-                  type="checkbox"
-                  class="dialog-list-item"
-                  role="option"
-                  aria-selected="false"
-                  tabindex="0"
-                />hoge</label
+              <button
+                type="button"
+                class="dialog-list-item"
+                id="dialog-list-item-0"
+                role="option"
+                aria-selected="false"
+                tabindex="-1"
               >
+                <span>hoge</span>
+                <img src="hoge" alt="" />
+              </button>
             </li>
             <li role="presentation">
-              <label
-                ><input
-                  type="checkbox"
-                  class="dialog-list-item"
-                  role="option"
-                  aria-selected="false"
-                  tabindex="-1"
-                />foo</label
+              <button
+                type="button"
+                class="dialog-list-item"
+                id="dialog-list-item-1"
+                role="option"
+                aria-selected="false"
+                tabindex="-1"
               >
+                <span>foo</span>
+                <img src="foo" alt="" />
+              </button>
             </li>
             <li role="presentation">
-              <label
-                ><input
-                  type="checkbox"
-                  class="dialog-list-item"
-                  role="option"
-                  aria-selected="false"
-                  tabindex="-1"
-                />bar</label
+              <button
+                type="button"
+                class="dialog-list-item"
+                id="dialog-list-item-2"
+                role="option"
+                aria-selected="false"
+                tabindex="-1"
               >
+                <span>bar</span>
+              </button>
+              <img src="bar" alt="" />
             </li>
           </ul>
         </div>
