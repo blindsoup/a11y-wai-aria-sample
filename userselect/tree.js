@@ -74,12 +74,13 @@ const handleKeyDown = (e) => {
   switch (e.key) {
     case "ArrowDown":
       nextFocus();
+      e.preventDefault();
       break;
     case "ArrowUp":
       backFocus();
+      e.preventDefault();
       break;
     case "ArrowLeft":
-    case "Backspace":
       if (shouldMoveParent(e.target)) {
         setFocusable(
           document.activeElement.closest(".tree").previousElementSibling
@@ -87,17 +88,18 @@ const handleKeyDown = (e) => {
       } else {
         setExpanded(e.target, false);
       }
+      e.preventDefault();
       break;
     case "ArrowRight":
       setExpanded(e.target, true);
+      e.preventDefault();
       break;
     case " ":
     case "Enter":
-      console.log(isExpanded(e.target));
-      console.log(typeof isExpanded(e.target));
       setExpanded(e.target, !isExpanded(e.target));
       setSelected(e.target);
       // 右ペインに選択したユーザ一覧を描画
+      e.preventDefault();
       break;
     default:
       break;
@@ -105,11 +107,10 @@ const handleKeyDown = (e) => {
 };
 
 const handleClick = (e) => {
-  // setSelected(e.target);
-  // setExpanded(e.target, !isExpanded(e.target));
+  setSelected(e.target);
+  setExpanded(e.target, !isExpanded(e.target));
 };
 
-setFocusable(getTreeFirstItemElement());
 getTreeElement().addEventListener("keydown", handleKeyDown);
 getTreeAllItemElements().forEach((element) =>
   element.addEventListener("click", handleClick)
