@@ -51,14 +51,14 @@ const setExpanded = (targetElement, expand) => {
 };
 
 const isExpanded = (targetElement) =>
-  targetElement.getAttribute("aria-expanded");
+  targetElement.getAttribute("aria-expanded") === "true";
 
 const setSelected = (targetElement) => {
   getTreeAllItemElements().forEach((itemElement) => {
-    itemElement.setAttribute("aria-checked", false);
+    itemElement.setAttribute("aria-selected", false);
     itemElement.classList.remove("selected");
   });
-  targetElement.setAttribute("aria-checked", true);
+  targetElement.setAttribute("aria-selected", true);
   targetElement.classList.add("selected");
 };
 
@@ -79,18 +79,25 @@ const handleKeyDown = (e) => {
       backFocus();
       break;
     case "ArrowLeft":
-      if (shouldMoveParent(e.target))
+    case "Backspace":
+      if (shouldMoveParent(e.target)) {
         setFocusable(
           document.activeElement.closest(".tree").previousElementSibling
         );
-      setExpanded(e.target, false);
+      } else {
+        setExpanded(e.target, false);
+      }
       break;
     case "ArrowRight":
       setExpanded(e.target, true);
       break;
     case " ":
     case "Enter":
+      console.log(isExpanded(e.target));
+      console.log(typeof isExpanded(e.target));
+      setExpanded(e.target, !isExpanded(e.target));
       setSelected(e.target);
+      // 右ペインに選択したユーザ一覧を描画
       break;
     default:
       break;
@@ -98,7 +105,8 @@ const handleKeyDown = (e) => {
 };
 
 const handleClick = (e) => {
-  setSelected(e.target);
+  // setSelected(e.target);
+  // setExpanded(e.target, !isExpanded(e.target));
 };
 
 setFocusable(getTreeFirstItemElement());
