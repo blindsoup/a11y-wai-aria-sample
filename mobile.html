@@ -18,5 +18,26 @@
         <label><input type="checkbox"/>日本</label>
         <label><input type="checkbox"/>米国</label>
     </div>
+    <hr/>
+    <section>
+        <div role="group" aria-label="居住地">
+            <label>居住パスワード：<input type="password"/></label>
+            <label>居住ファイル：<input type="file"/></label>
+        </div>
+    </section>
+
+    <h2>グループの入れ子</h2>
+    <section aria-label="group test">
+        <p>グループの入れ子のテスト</p>
+        <fieldset>
+            <legend>グループ入れ子１</legend>
+            <label><input type="radio" />hoge</label>
+            <fieldset>
+                <legend><h3>グループの入れ子２</h3></legend>
+                <label><input type="radio"/>hogehoge</label>
+            </fieldset>
+        </fieldset>
+    </section>
+    <p>グループテストの終わり</p>
 </body>
 </html>
