@@ -13,6 +13,14 @@
 </head>
 
 <body>
+    <h3>dialog test</h3>
+<button type="button" >アプリメモを作成</button>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
+<p>hoge</p>
     <input type="text" id="www">
     <!-- Button trigger modal -->
     <form>
@@ -26,11 +34,11 @@
         </fieldset>
     </form>
     Modal
-    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-modal="true" aria-hidden="true">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
+                    <h5 id="modelTitleId" class="modal-title">Modal title</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -52,6 +60,15 @@
         <button id="close">close</button>
     </dialog>
     <button id="open">open</button>
+
+    <div role="dialog" aria-labelledby="dialog-title" tabindex="0" style="display: none" aria-modal="true">
+        <div>
+            <h2 id="dialog-title">アプリメモの作成</h2>
+            <button type="button">close</button>
+        </div>
+        <label>メモ：<textarea ></textarea></label>
+        <span aria-hidden="true" tabindex="0"></span>
+    </div>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
