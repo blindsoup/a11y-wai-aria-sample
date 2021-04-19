@@ -4,8 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mobile</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>バグ</h1>
+    <h2>1</h2>
+    <fieldset  style="display: flex">
+        <legend class="assistive-text">assistive-textの日数指定</legend>
+        <input type="number">
+        <div><select>
+          <option>a</option>
+          <option>日</option>
+        </select></div>
+        <div><select>
+          <option>b</option>
+          <option>前</option>
+        </select></div>
+      </fieldset>
+      <h2>2</h2>
+      <fieldset  aria-label="ara-labelのにっす指定" style="display: flex">
+        <input type="number">
+        <div><select>
+          <option>a</option>
+          <option>日</option>
+        </select></div>
+        <div><select>
+          <option>b</option>
+          <option>前</option>
+        </select></div>
+      </fieldset>
+      
     <h1>グループテスト</h1>
     <fieldset>
         <legend>都道府県</legend>
@@ -39,5 +67,24 @@
         </fieldset>
     </section>
     <p>グループテストの終わり</p>
+    <select>
+        <option disabled>--</option>
+        <option>a</option>
+        <option>b</option>
+    </select>
+    <p>日本 <span lang="en">Japanese</span>は食べ物である</p>
+    <p><span lang="en">This is らっかせい</span></p>
+    <h2 class="gaia-mobile-v2-space-spaceheader-name"><img class="gaia-mobile-v2-space-spaceheader-favorite-icon" style="" src="https://static.cybozu-dev.com/contents/k/image/gaia/mobile/v2/space/favorite-pin.svg" alt="お気に入り済み">guest space</h2>
+    <h2 class="gaia-mobile-v2-space-spaceheader-name"><img role="img" class="gaia-mobile-v2-space-spaceheader-favorite-icon" style="" src="https://static.cybozu-dev.com/contents/k/image/gaia/mobile/v2/space/favorite-pin.svg" alt="お気に入り済み">guest space</h2>
+    <select aria-label="文言">
+      <optgroup label="日付選択">
+        <option>１月</option>
+        <option>2月</option>
+      </optgroup>
+      <optgroup label="時刻選択">
+        <option>午前</option>
+        <option>午後</option>
+      </optgroup>
+    </select>
 </body>
 </html>
