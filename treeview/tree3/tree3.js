@@ -20,11 +20,11 @@ function getFirstItemEl() {
 }
 
 function getActiveItemEl() {
-  return  document.activeElement.closest('.treeitem-nav').children[0];
+  return  document.activeElement.closest('.treeitem-nav').children[1];
 }
 
 function getAllItemEls() {
-  return document.querySelectorAll('.treeitem'); 
+  return document.querySelectorAll('.treeitem');
 }
 
 function getChildItemEls(treeEl) {
@@ -135,6 +135,14 @@ function toggleExpanded(itemEl) {
 //   setLevelRec(getFirstItemEl(), 100);
 // }
 
+function selectItem() {
+  console.log(
+    getActiveItemEl()
+  );
+  getAllItemEls().forEach(el => el.setAttribute('aria-selected', false));
+  getActiveItemEl().setAttribute('aria-selected', true);
+}
+
 function handleKeyDown(evt) {
   switch (evt.key) {
     case "ArrowDown":
@@ -157,7 +165,10 @@ function handleKeyDown(evt) {
       setExpanded(getActiveItemEl(), false);
       evt.preventDefault();
       break;
-  }  
+    case "Enter":
+    selectItem()
+      evt.preventDefault()
+  }
   console.log(evt.key);
 }
 

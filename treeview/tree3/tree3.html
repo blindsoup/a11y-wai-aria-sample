@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="tree3.css">
 </head>
+
 <body>
   <h1>ツリー</h1>
-  
+
   <ul class="tree" role="tree" aria-label="Garoonカテゴリーツリー">
     <li role="presentation">
       <div class="treeitem-nav">
@@ -19,8 +21,9 @@
       <ul class="tree" role="group" id="group-root">
         <li role="presentation">
           <div class="treeitem-nav">
-            <button type="button" class="treeitem-button" tabindex="-1" aria-owns="group-item1">expand</button>
-            <a class="treeitem" role="treeitem" href="https://cybozu.co.jp" target="_blank" aria-owns="group-item1">item1</a>
+            <button type="button" class="treeitem-button" tabindex="-1">expand</button>
+            <a class="treeitem" role="treeitem" href="https://cybozu.co.jp" target="_blank"
+              aria-owns="group-item1">item1</a>
           </div>
 
           <ul class="tree" role="group" id="group-item1">
@@ -63,10 +66,11 @@
   </ul>
 
   <input type="text">
-  <h1>ツリー終わり</h1> 
+  <h1>ツリー終わり</h1>
   <script src="../lib/arrayfrom.js"></script>
   <script src="../lib/closest.js"></script>
   <script src="../lib/findindex.js"></script>
   <script src="tree3.js"></script>
 </body>
+
 </html>
