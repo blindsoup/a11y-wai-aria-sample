@@ -136,11 +136,8 @@ function toggleExpanded(itemEl) {
 // }
 
 function selectItem() {
-  console.log(
-    getActiveItemEl()
-  );
-  getAllItemEls().forEach(el => el.setAttribute('aria-selected', false));
-  getActiveItemEl().setAttribute('aria-selected', true);
+  getAllItemEls().forEach(el => el.setAttribute('aria-checked', false));
+  getActiveItemEl().setAttribute('aria-checked', true);
 }
 
 function handleKeyDown(evt) {
@@ -183,5 +180,6 @@ Array.from(getAllButtonEls()).forEach(function(buttonEl) {
 });
 setFocusable(getFirstItemEl());
 setAllExpanded(true);
+getAllItemEls().forEach(el => el.setAttribute('aria-checked', false));
 //setPosinsetAndSize();
 // setLevel();
