@@ -5,44 +5,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="tree3.css">
+  <link rel="stylesheet" href="tree.css">
 </head>
 
 <body>
   <h1>ツリー</h1>
 
-  <ul class="tree" role="tree" aria-label="Garoonカテゴリーツリー">
+  <ul class="tree" role="tree" aria-label="カテゴリー">
     <li role="presentation">
       <div class="treeitem-nav">
         <button type="button" class="treeitem-button" tabindex="-1">expand</button>
-        <a class="treeitem" role="treeitem" href="https://cybozu.co.jp" target="_blank" aria-owns="group-root">root</a>
+        <button class="treeitem" role="treeitem" aria-owns="group-root">root</button>
       </div>
 
       <ul class="tree" role="group" id="group-root">
         <li role="presentation">
           <div class="treeitem-nav">
             <button type="button" class="treeitem-button" tabindex="-1">expand</button>
-            <a class="treeitem" role="treeitem" href="https://cybozu.co.jp" target="_blank"
-              aria-owns="group-item1">item1</a>
+            <button class="treeitem" role="treeitem" aria-owns="group-item1">item1</button>
           </div>
 
           <ul class="tree" role="group" id="group-item1">
             <li role="presentation">
               <div class="treeitem-nav">
                 <button type="button" class="treeitem-button" tabindex="-1">expand</button>
-                <a class="treeitem" role="treeitem" href="https://cybozu.co.jp" target="_blank">item1-1</a>
+                <button class="treeitem" role="treeitem">item1-1</button>
               </div>
             </li>
             <li role="presentation">
               <div class="treeitem-nav">
                 <button type="button" class="treeitem-button" tabindex="-1">expand</button>
-                <a class="treeitem" role="treeitem" href="https://cybozu.co.jp" target="_blank">item1-2</a>
+                <button class="treeitem" role="treeitem">item1-2</button>
               </div>
             </li>
             <li role="presentation">
               <div class="treeitem-nav">
                 <button type="button" class="treeitem-button" tabindex="-1">expand</button>
-                <a class="treeitem" role="treeitem" href="https://cybozu.co.jp" target="_blank">item1-3</a>
+                <button class="treeitem" role="treeitem">item1-3</button>
               </div>
             </li>
           </ul>
@@ -51,13 +50,13 @@
         <li role="presentation">
           <div class="treeitem-nav">
             <button type="button" class="treeitem-button" tabindex="-1">expand</button>
-            <a class="treeitem" role="treeitem" href="https://cybozu.co.jp" target="_blank">item2</a>
+            <button class="treeitem" role="treeitem">item2</button>
           </div>
         </li>
         <li role="presentation">
           <div class="treeitem-nav">
             <button type="button" class="treeitem-button" tabindex="-1">expand</button>
-            <a class="treeitem" role="treeitem" href="https://cybozu.co.jp" target="_blank">item3</a>
+            <button class="treeitem" role="treeitem">item3</button>
           </div>
         </li>
       </ul>
@@ -70,7 +69,7 @@
   <script src="../lib/arrayfrom.js"></script>
   <script src="../lib/closest.js"></script>
   <script src="../lib/findindex.js"></script>
-  <script src="tree3.js"></script>
+  <script src="tree.js"></script>
 </body>
 
 </html>
