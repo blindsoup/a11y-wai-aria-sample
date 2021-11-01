@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="tree4.css" />
+  </head>
+  <body>
+    <h1>ツリー</h1>
+    <ul class="tree" role="tree" aria-label="Garoon Tree View">
+      <li
+        class="treeitem"
+        role="treeitem"
+        aria-checked="false"
+        aria-labelledby="root-link"
+        aria-owns="group-root"
+      >
+        <div class="treeitem-nav">
+          <button type="button" class="treeitem-button" tabindex="-1">
+            expand
+          </button>
+          <input type="checkbox" class="treeitem-checkbox" tabindex="-1" aria-labelledby="root-link" />
+          <a
+            href="#" class="treeitem-link"
+            target="_blank"
+            tabindex="-1"
+            id="root-link"
+            >root
+        </a>
+        </div>
+
+        <ul class="tree" role="group" id="group-root">
+          <li
+            class="treeitem"
+            role="treeitem"
+            aria-checked="false"
+            aria-labelledby="treeitem1-link"
+            aria-owns="group-item1"
+          >
+            <div class="treeitem-nav">
+              <button type="button" class="treeitem-button" tabindex="-1">
+                expand
+              </button>
+              <input type="checkbox" class="treeitem-checkbox" tabindex="-1" aria-labelledby="treeitem1-link" />
+              <a
+                href="#" class="treeitem-link"
+                target="_blank"
+                tabindex="-1"
+                id="treeitem1-link"
+                >item1
+            </a>
+            </div>
+
+            <ul role="group" class="tree" id="group-item1">
+              <li
+                class="treeitem"
+                role="treeitem"
+                aria-checked="false"
+                aria-labelledby="treeitem1-1-link"
+                aria-owns="group-item1-1"
+              >
+                <div class="treeitem-nav">
+                  <button type="button" class="treeitem-button" tabindex="-1">
+                    expand
+                  </button>
+                  <input
+                    type="checkbox"
+                    class="treeitem-checkbox"
+                    tabindex="-1"
+                    aria-labelledby="treeitem1-1-link"
+                  />
+                  <a
+                    href="#" class="treeitem-link"
+                    target="_blank"
+                    tabindex="-1"
+                    id="treeitem1-1-link"
+                    >item1-1
+                </a>
+                </div>
+
+                <ul role="group" class="tree" id="group-item1-1">
+                  <li
+                    class="treeitem"
+                    role="treeitem"
+                    aria-checked="false"
+                    aria-labelledby="treeitem1-1-1-link"
+                  >
+                    <div class="treeitem-nav">
+                      <button
+                        type="button"
+                        class="treeitem-button"
+                        tabindex="-1"
+                      >
+                        expand
+                      </button>
+                      <input
+                        type="checkbox"
+                        class="treeitem-checkbox"
+                        tabindex="-1"
+                        aria-labelledby="treeitem1-1-1-link" 
+                      />
+                      <a href="#" class="treeitem-link"
+                        target="_blank"
+                        tabindex="-1"
+                        id="treeitem1-1-1-link"
+                        >item1-1-1
+                    </a>
+                    </div>
+                  </li>
+                  <li
+                    class="treeitem"
+                    role="treeitem"
+                    aria-checked="false"
+                    aria-labelledby="treeitem1-1-2-link"
+                  >
+                    <div class="treeitem-nav">
+                      <button
+                        type="button"
+                        class="treeitem-button"
+                        tabindex="-1"
+                      >
+                        expand
+                      </button>
+                      <input
+                        type="checkbox"
+                        class="treeitem-checkbox"
+                        tabindex="-1"
+                        aria-labelledby="treeitem1-1-2-link" 
+                      />
+                      <a href="#" class="treeitem-link"
+                        target="_blank"
+                        tabindex="-1"
+                        id="treeitem1-1-2-link"
+                        >item1-1-2
+                    </a>
+                    </div>
+                  </li>
+                  <li
+                    class="treeitem"
+                    role="treeitem"
+                    aria-checked="false"
+                    aria-labelledby="treeitem1-1-3-link"
+                  >
+                    <div class="treeitem-nav">
+                      <button
+                        type="button"
+                        class="treeitem-button"
+                        tabindex="-1"
+                      >
+                        expand
+                      </button>
+                      <input
+                        type="checkbox"
+                        class="treeitem-checkbox"
+                        tabindex="-1"
+                        aria-labelledby="treeitem1-1-3-link" 
+                      />
+                      <a href="#" class="treeitem-link"
+                        target="_blank"
+                        tabindex="-1"
+                        id="treeitem1-1-3-link"
+                        >item1-1-3
+                    </a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <li
+                class="treeitem"
+                role="treeitem"
+                aria-checked="false"
+                aria-labelledby="treeitem1-2-link"
+              >
+                <div class="treeitem-nav">
+                  <button type="button" class="treeitem-button" tabindex="-1">
+                    expand
+                  </button>
+                  <input
+                    type="checkbox"
+                    class="treeitem-checkbox"
+                    tabindex="-1"
+                    aria-labelledby="treeitem1-2-link" 
+                    />
+                  <a href="#" class="treeitem-link"
+                    target="_blank"
+                    tabindex="-1"
+                    id="treeitem1-2-link"
+                  >item1-2</a>
+                </div>
+              </li>
+              <li
+                class="treeitem"
+                role="treeitem"
+                aria-checked="false"
+                aria-labelledby="treeitem1-3-link"
+              >
+                <div class="treeitem-nav">
+                  <button type="button" class="treeitem-button" tabindex="-1">
+                    expand
+                  </button>
+                  <input
+                    type="checkbox"
+                    class="treeitem-checkbox"
+                    tabindex="-1"
+                    aria-labelledby="treeitem1-3-link" 
+                    />
+                  <a href="#" class="treeitem-link"
+                    target="_blank"
+                    tabindex="-1"
+                    id="treeitem1-3-link"
+                    >item1-3
+                </a>
+                </div>
+              </li>
+              <li
+                class="treeitem"
+                role="treeitem"
+                aria-checked="false"
+                aria-labelledby="treeitem1-4-link"
+              >
+                <div class="treeitem-nav">
+                  <button type="button" class="treeitem-button" tabindex="-1">
+                    expand
+                  </button>
+                  <input
+                    type="checkbox"
+                    class="treeitem-checkbox"
+                    tabindex="-1"
+                    aria-labelledby="treeitem1-4-link" 
+                    />
+                  <a href="#" class="treeitem-link"
+                    target="_blank"
+                    tabindex="-1"
+                    id="treeitem1-4-link"
+                    >item1-4
+                </a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="treeitem"
+            role="treeitem"
+            aria-checked="false"
+            aria-labelledby="treeitem2-link"
+            aria-owns="group-item2"
+          >
+            <div class="treeitem-nav">
+              <button type="button" class="treeitem-button" tabindex="-1">
+                expand
+              </button>
+              <input type="checkbox" class="treeitem-checkbox" tabindex="-1" aria-labelledby="treeitem2-link" />
+              <button
+                type="button" href="#" class="treeitem-link"
+                target="_blank"
+                tabindex="-1"
+                id="treeitem2-link"
+                >item2</button
+              >
+            </div>
+
+            <ul role="group" class="tree" id="group-item2">
+              <li
+                class="treeitem"
+                role="treeitem"
+                aria-checked="false"
+                aria-labelledby="treeitem2-1-link"
+              >
+                <div class="treeitem-nav">
+                  <button type="button" class="treeitem-button" tabindex="-1">
+                    expand
+                  </button>
+                  <input
+                    type="checkbox"
+                    class="treeitem-checkbox"
+                    tabindex="-1"
+                    aria-labelledby="treeitem2-1-link"
+                  />
+                  <a href="#" class="treeitem-link"
+                    target="_blank"
+                    tabindex="-1"
+                    id="treeitem2-1-link"
+                    >item2-1
+                </a>
+                </div>
+              </li>
+              <li
+                class="treeitem"
+                role="treeitem"
+                aria-checked="false"
+                aria-labelledby="treeitem2-2-link"
+              >
+                <div class="treeitem-nav">
+                  <button type="button" class="treeitem-button" tabindex="-1">
+                    expand
+                  </button>
+                  <input
+                    type="checkbox"
+                    class="treeitem-checkbox"
+                    tabindex="-1"
+                    aria-labelledby="treeitem2-2-link"
+                  />
+                  <a href="#" class="treeitem-link"
+                    target="_blank"
+                    tabindex="-1"
+                    id="treeitem2-2-link"
+                    >item2-2
+                </a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li
+            class="treeitem"
+            role="treeitem"
+            aria-checked="false"
+            aria-labelledby="treeitem3-link"
+          >
+            <div class="treeitem-nav">
+              <button type="button" class="treeitem-button" tabindex="-1">
+                expand
+              </button>
+              <input type="checkbox" class="treeitem-checkbox" tabindex="-1" aria-labelledby="treeitem3-link" />
+              <a href="#" class="treeitem-link"
+                target="_blank"
+                tabindex="-1"
+                id="treeitem3-link"
+                >item3
+            </a>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <input type="text" />
+    <h1>ツリー終わり</h1>
+    <script src="../lib/arrayfrom.js"></script>
+    <script src="../lib/closest.js"></script>
+    <script src="../lib/findindex.js"></script>
+    <script src="tree4.js"></script>
+  </body>
+</html>
