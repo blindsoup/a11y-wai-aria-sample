@@ -11,6 +11,32 @@
 <body>
   <h1>ツリー</h1>
 
+  <ul role="list" aria-label="tree">
+    <li>
+      <button type="button" aria-expanded="false" aria-label="root"></button>
+      <input type="radio" id="radio0" />
+      <label for="radio0">root</label>
+    </li>
+    <li>
+      <button type="button" aria-expanded="true" aria-label="item1"></button>
+      <input type="radio" id="radio1" />
+      <label for="radio1">item1</label>
+      <ul role="list">
+        <li>
+          <button type="button" aria-label="item1-1"></button>
+          <input type="radio" id="radio1-1" />
+          <label for="radio1-1">item1-1</label>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <button type="button" aria-expanded="true" aria-label="item2"></button>
+      <input type="radio" id="radio2" />
+      <label for="radio2">item2</label>
+    </li>
+  </ul>
+
+  ---
   <ul class="tree" aria-label="ツリー">
     <li>
       <div class="treeitem-nav">
