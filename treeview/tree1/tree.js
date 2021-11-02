@@ -23,7 +23,7 @@ function getActiveItemEl() {
 }
 
 function getAllItemEls() {
-  return document.querySelectorAll('.treeitem'); 
+  return document.querySelectorAll('.treeitem');
 }
 
 function getChildItemEls(treeEl) {
@@ -35,7 +35,7 @@ function getAllButtonEls() {
 }
 
 function getButtonEl(itemEl){
-  return itemEl.querySelector('..treeitem-button');
+  return itemEl.querySelector('.treeitem-button');
 }
 
 function getLinkEl(itemEl) {
@@ -165,7 +165,7 @@ function handleKeyDown(evt) {
     case "Space":
       openLink();
       break;
-  }  
+  }
   console.log(evt.key);
 }
 

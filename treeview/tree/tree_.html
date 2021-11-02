@@ -11,108 +11,34 @@
 <body>
   <h1>ツリー</h1>
 
-  <ul role="list" aria-label="tree">
+  <ul role="list" aria-label="garoon mobile tree" class="tree">
     <li>
-      <button type="button" aria-expanded="false" aria-label="root"></button>
-      <input type="radio" id="radio0" />
-      <label for="radio0">root</label>
+      <button type="button" class="tree-radio" aria-pressed="false">root</button>
     </li>
     <li>
-      <button type="button" aria-expanded="true" aria-label="item1"></button>
-      <input type="radio" id="radio1" />
-      <label for="radio1">item1</label>
-      <ul role="list">
+      <button type="button" class="tree-nav" aria-expanded="true" aria-label="item1"></button>
+      <button type="button" class="tree-radio" aria-pressed="false">item1</button>
+      <ul role="list" class="tree">
         <li>
-          <button type="button" aria-label="item1-1"></button>
-          <input type="radio" id="radio1-1" />
-          <label for="radio1-1">item1-1</label>
+          <button type="button" class="tree-radio" aria-pressed="false">item1-1</button>
         </li>
-      </ul>
-    </li>
-    <li>
-      <button type="button" aria-expanded="true" aria-label="item2"></button>
-      <input type="radio" id="radio2" />
-      <label for="radio2">item2</label>
-    </li>
-  </ul>
-
-  ---
-  <ul class="tree" aria-label="ツリー">
-    <li>
-      <div class="treeitem-nav">
-        <button type="button" class="treeitem-button" aria-expanded="true" aria-label="root"></button>
-      </div>
-      <div>
-        <input type="radio" id="radio-1" />
-        <label for="radio-1">root</label>
-      </div>
-
-      <ul class="tree">
         <li>
-          <div class="treeitem-nav">
-            <button type="button" class="treeitem-button" tabindex="-1" aria-label="item1"></button>
-          </div>
-          <div>
-            <button class="treeitem" tabindex="-1" id="tree-radio-2">item1</button>
-            <img src="..." alt="" />
-          </div>
-
-          <ul class="tree">
+          <button type="button" class="tree-nav" aria-expanded="true" aria-label="item1-2"></button>
+          <button type="button" class="tree-radio" aria-pressed="false">item1-2</button>
+          <ul role="list" class="tree">
             <li>
-              <div class="treeitem-nav">
-                <button type="button" class="treeitem-button" tabindex="-1" aria-label="item1-1"></button>
-              </div>
-              <div>
-                <button class="treeitem" tabindex="-1" id="tree-radio-3">item1-1</button>
-                <img src="..." alt="" />
-              </div>
-            </li>
-            <li>
-              <div class="treeitem-nav">
-                <button type="button" class="treeitem-button" tabindex="-1" aria-label="item1-2"></button>
-              </div>
-              <div>
-                <button class="treeitem" tabindex="-1" id="tree-radio-4">item1-2</button>
-                <img src="..." alt="" />
-              </div>
-            </li>
-            <li>
-              <div class="treeitem-nav">
-                <button type="button" class="treeitem-button" tabindex="-1" aria-label="item1-3"></button>
-              </div>
-              <div>
-                <button class="treeitem" tabindex="-1" id="tree-radio-5">item1-3</button>
-                <img src="..." alt="" />
-              </div>
+              <button type="button" class="tree-radio" aria-pressed="false">item1-2-1</button>
             </li>
           </ul>
-
-        </li>
-        <li>
-          <div class="treeitem-nav">
-            <button type="button" class="treeitem-button" tabindex="-1" aria-label="item2"></button>
-          </div>
-          <div>
-            <button class="treeitem" tabindex="-1" id="tree-radio-6">item2</button>
-            <img src="..." alt="" />
-          </div>
-        </li>
-        <li>
-          <div class="treeitem-nav">
-            <button type="button" class="treeitem-button" tabindex="-1" aria-label="item3"></button>
-          </div>
-          <div>
-            <button class="treeitem" tabindex="-1" id="tree-radio-7">item3</button>
-            <img src="..." alt="" />
-          </div>
         </li>
       </ul>
-
+    </li>
+    <li>
+      <button type="button" class="tree-radio" aria-pressed="false">item2</button>
     </li>
   </ul>
 
-  <input type="text">
-  <h1>ツリー終わり</h1>
+  <hr>
   <script src="../lib/arrayfrom.js"></script>
   <script src="../lib/closest.js"></script>
   <script src="../lib/findindex.js"></script>

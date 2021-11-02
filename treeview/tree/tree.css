@@ -10,3 +10,32 @@ ul {
 .treeitem:not([aria-owns]) + .treeitem-button {
   display: none;
 }
+
+/* .tree-radio {
+  position: fixed !important;
+  top: 0px !important;
+  left: 0px !important;
+  width: 4px !important;
+  height: 4px !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  visibility: visible !important;
+} */
+
+.tree-radio-label {
+  padding: 8px 32px 8px 0;
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 24px;
+}
+.tree-radio:not(:checked) + .tree-radio-label {
+  background-image: url("https://cybozu-garoon-ci.s3-ap-northeast-1.amazonaws.com/storybook-mobile/GTM-10509-select-users-with-storybook/static/media/RadioButtonOff.4ed387c4.png");
+}
+
+.tree-radio:checked + .tree-radio-label {
+  background-image: url("https://cybozu-garoon-ci.s3-ap-northeast-1.amazonaws.com/storybook-mobile/GTM-10509-select-users-with-storybook/static/media/RadioButtonOn.bdcb8cb5.png");
+}
