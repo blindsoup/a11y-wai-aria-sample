@@ -9,66 +9,36 @@
 </head>
 
 <body>
-  <h1>ツリー</h1>
+  <h1>Tree</h1>
 
-  <ul class="tree" role="tree" aria-label="カテゴリー">
-    <li role="presentation">
-      <div class="treeitem-nav">
-        <button type="button" class="treeitem-button" tabindex="-1">expand</button>
-        <button class="treeitem" role="treeitem" aria-owns="group-root">root</button>
-      </div>
-
-      <ul class="tree" role="group" id="group-root">
-        <li role="presentation">
-          <div class="treeitem-nav">
-            <button type="button" class="treeitem-button" tabindex="-1">expand</button>
-            <button class="treeitem" role="treeitem" aria-owns="group-item1">item1</button>
-          </div>
-
-          <ul class="tree" role="group" id="group-item1">
-            <li role="presentation">
-              <div class="treeitem-nav">
-                <button type="button" class="treeitem-button" tabindex="-1">expand</button>
-                <button class="treeitem" role="treeitem">item1-1</button>
-              </div>
-            </li>
-            <li role="presentation">
-              <div class="treeitem-nav">
-                <button type="button" class="treeitem-button" tabindex="-1">expand</button>
-                <button class="treeitem" role="treeitem">item1-2</button>
-              </div>
-            </li>
-            <li role="presentation">
-              <div class="treeitem-nav">
-                <button type="button" class="treeitem-button" tabindex="-1">expand</button>
-                <button class="treeitem" role="treeitem">item1-3</button>
-              </div>
+  <ul role="list" aria-label="garoon mobile tree" class="tree">
+    <li>
+      <button type="button" class="tree-radio" aria-pressed="false">root</button>
+    </li>
+    <li>
+      <button type="button" class="tree-nav" aria-expanded="true" aria-label="item1"></button>
+      <button type="button" class="tree-radio" aria-pressed="false">item1</button>
+      <ul role="list" class="tree">
+        <li>
+          <button type="button" class="tree-radio" aria-pressed="false">item1-1</button>
+        </li>
+        <li>
+          <button type="button" class="tree-nav" aria-expanded="true" aria-label="item1-2"></button>
+          <button type="button" class="tree-radio" aria-pressed="false">item1-2</button>
+          <ul role="list" class="tree">
+            <li>
+              <button type="button" class="tree-radio" aria-pressed="false">item1-2-1</button>
             </li>
           </ul>
-
-        </li>
-        <li role="presentation">
-          <div class="treeitem-nav">
-            <button type="button" class="treeitem-button" tabindex="-1">expand</button>
-            <button class="treeitem" role="treeitem">item2</button>
-          </div>
-        </li>
-        <li role="presentation">
-          <div class="treeitem-nav">
-            <button type="button" class="treeitem-button" tabindex="-1">expand</button>
-            <button class="treeitem" role="treeitem">item3</button>
-          </div>
         </li>
       </ul>
-
+    </li>
+    <li>
+      <button type="button" class="tree-radio" aria-pressed="false">item2</button>
     </li>
   </ul>
 
-  <input type="text">
-  <h1>ツリー終わり</h1>
-  <script src="../lib/arrayfrom.js"></script>
-  <script src="../lib/closest.js"></script>
-  <script src="../lib/findindex.js"></script>
+  <hr>
   <script src="tree.js"></script>
 </body>
 

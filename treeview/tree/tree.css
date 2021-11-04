@@ -26,16 +26,24 @@ ul {
   visibility: visible !important;
 } */
 
-.tree-radio-label {
+.tree-nav {
+  width: 24px;
+  height: 24px;
+}
+
+.tree-radio {
   padding: 8px 32px 8px 0;
+  border: 0;
+  background-color: transparent;
   background-position: right;
   background-repeat: no-repeat;
   background-size: 24px;
+  cursor: pointer;
 }
-.tree-radio:not(:checked) + .tree-radio-label {
-  background-image: url("https://cybozu-garoon-ci.s3-ap-northeast-1.amazonaws.com/storybook-mobile/GTM-10509-select-users-with-storybook/static/media/RadioButtonOff.4ed387c4.png");
+.tree-radio[aria-pressed="false"] {
+  background-image: url("./radio-unchecked.png");
 }
 
-.tree-radio:checked + .tree-radio-label {
-  background-image: url("https://cybozu-garoon-ci.s3-ap-northeast-1.amazonaws.com/storybook-mobile/GTM-10509-select-users-with-storybook/static/media/RadioButtonOn.bdcb8cb5.png");
+.tree-radio[aria-pressed="true"] {
+  background-image: url("./radio-checked.png");
 }

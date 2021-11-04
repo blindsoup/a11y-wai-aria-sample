@@ -4,9 +4,9 @@ getAllTreeButtonEls = () => document.querySelectorAll('.tree-nav');
 
 hasSubTree = (itemEl) => !!itemEl.querySelector('.tree');
 
-  getSubTreeEl = (itemEl) => itemEl.querySelector('.tree');
+getSubTreeEl = (itemEl) => itemEl.parentElement.querySelector('.tree');
 
-  isExpanded = (itemEl) => itemEl.getAttribute('aria-expanded') == 'true';
+isExpanded = (itemEl) => itemEl.getAttribute('aria-expanded') == 'true';
 
 setExpand = (itemEl, expand) => {
   // if (!hasSubTree(itemEl)) return;
