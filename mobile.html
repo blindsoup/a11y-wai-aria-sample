@@ -1,90 +1,122 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>バグ</h1>
-    <h2>1</h2>
-    <fieldset  style="display: flex">
-        <legend class="assistive-text">assistive-textの日数指定</legend>
-        <input type="number">
-        <div><select>
-          <option>a</option>
-          <option>日</option>
-        </select></div>
-        <div><select>
-          <option>b</option>
-          <option>前</option>
-        </select></div>
-      </fieldset>
-      <h2>2</h2>
-      <fieldset  aria-label="ara-labelのにっす指定" style="display: flex">
-        <input type="number">
-        <div><select>
-          <option>a</option>
-          <option>日</option>
-        </select></div>
-        <div><select>
-          <option>b</option>
-          <option>前</option>
-        </select></div>
-      </fieldset>
-      
-    <h1>グループテスト</h1>
-    <fieldset>
-        <legend>都道府県</legend>
-        <label><input type="radio"/>北海道</label>
-        <label><input type="radio"/>東京</label>
-    </fieldset>
-    <hr/>
-    <div role="group" aria-labelledby="group-title">
-        <div id="group-title">国籍</div>
-        <label><input type="checkbox"/>日本</label>
-        <label><input type="checkbox"/>米国</label>
-    </div>
-    <hr/>
-    <section>
-        <div role="group" aria-label="居住地">
-            <label>居住パスワード：<input type="password"/></label>
-            <label>居住ファイル：<input type="file"/></label>
-        </div>
-    </section>
 
-    <h2>グループの入れ子</h2>
-    <section aria-label="group test">
-        <p>グループの入れ子のテスト</p>
-        <fieldset>
-            <legend>グループ入れ子１</legend>
-            <label><input type="radio" />hoge</label>
-            <fieldset>
-                <legend><h3>グループの入れ子２</h3></legend>
-                <label><input type="radio"/>hogehoge</label>
-            </fieldset>
-        </fieldset>
-    </section>
-    <p>グループテストの終わり</p>
-    <select>
-        <option disabled>--</option>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <span role="group" aria-label="group test2">
+    <button type="button" aria-pressed="true">
+      Foo
+    </button>
+    <button type="button" aria-pressed="false">
+      Bar
+    </button>
+    <button type="button" aria-pressed="true">
+      Hoge
+    </button>
+  </span>
+  <span role="group" aria-label="group test">
+    <button type="button" aria-pressed="true">
+      Foo
+    </button>
+    <button type="button" aria-pressed="false">
+      Bar
+    </button>
+    <button type="button" aria-pressed="true">
+      Hoge
+    </button>
+  </span>
+  <h1>バグ</h1>
+  <h2>1</h2>
+  <fieldset style="display: flex">
+    <legend class="assistive-text">assistive-textの日数指定</legend>
+    <input type="number">
+    <div><select>
         <option>a</option>
+        <option>日</option>
+      </select></div>
+    <div><select>
         <option>b</option>
-    </select>
-    <p>日本 <span lang="en">Japanese</span>は食べ物である</p>
-    <p><span lang="en">This is らっかせい</span></p>
-    <h2 class="gaia-mobile-v2-space-spaceheader-name"><img class="gaia-mobile-v2-space-spaceheader-favorite-icon" style="" src="https://static.cybozu-dev.com/contents/k/image/gaia/mobile/v2/space/favorite-pin.svg" alt="お気に入り済み">guest space</h2>
-    <h2 class="gaia-mobile-v2-space-spaceheader-name"><img role="img" class="gaia-mobile-v2-space-spaceheader-favorite-icon" style="" src="https://static.cybozu-dev.com/contents/k/image/gaia/mobile/v2/space/favorite-pin.svg" alt="お気に入り済み">guest space</h2>
-    <select aria-label="文言">
-      <optgroup label="日付選択">
-        <option>１月</option>
-        <option>2月</option>
-      </optgroup>
-      <optgroup label="時刻選択">
-        <option>午前</option>
-        <option>午後</option>
-      </optgroup>
-    </select>
+        <option>前</option>
+      </select></div>
+  </fieldset>
+  <h2>2</h2>
+  <fieldset aria-label="ara-labelのにっす指定" style="display: flex">
+    <input type="number">
+    <div><select>
+        <option>a</option>
+        <option>日</option>
+      </select></div>
+    <div><select>
+        <option>b</option>
+        <option>前</option>
+      </select></div>
+  </fieldset>
+
+  <h1>グループテスト</h1>
+  <fieldset>
+    <legend>都道府県</legend>
+    <label><input type="radio" />北海道</label>
+    <label><input type="radio" />東京</label>
+  </fieldset>
+  <hr />
+  <div role="group" aria-labelledby="group-title">
+    <div id="group-title">国籍</div>
+    <label><input type="checkbox" />日本</label>
+    <label><input type="checkbox" />米国</label>
+  </div>
+  <hr />
+  <section>
+    <div role="group" aria-label="居住地">
+      <label>居住パスワード：<input type="password" /></label>
+      <label>居住ファイル：<input type="file" /></label>
+    </div>
+  </section>
+
+  <h2>グループの入れ子</h2>
+  <section aria-label="group test">
+    <p>グループの入れ子のテスト</p>
+    <fieldset>
+      <legend>グループ入れ子１</legend>
+      <label><input type="radio" />hoge</label>
+      <fieldset>
+        <legend>
+          <h3>グループの入れ子２</h3>
+        </legend>
+        <label><input type="radio" />hogehoge</label>
+      </fieldset>
+    </fieldset>
+  </section>
+  <p>グループテストの終わり</p>
+  <select>
+    <option disabled>--</option>
+    <option>a</option>
+    <option>b</option>
+  </select>
+  <p>日本 <span lang="en">Japanese</span>は食べ物である</p>
+  <p><span lang="en">This is らっかせい</span></p>
+  <h2 class="gaia-mobile-v2-space-spaceheader-name"><img class="gaia-mobile-v2-space-spaceheader-favorite-icon" style=""
+      src="https://static.cybozu-dev.com/contents/k/image/gaia/mobile/v2/space/favorite-pin.svg" alt="お気に入り済み">guest
+    space</h2>
+  <h2 class="gaia-mobile-v2-space-spaceheader-name"><img role="img"
+      class="gaia-mobile-v2-space-spaceheader-favorite-icon" style=""
+      src="https://static.cybozu-dev.com/contents/k/image/gaia/mobile/v2/space/favorite-pin.svg" alt="お気に入り済み">guest
+    space</h2>
+  <select aria-label="文言">
+    <optgroup label="日付選択">
+      <option>１月</option>
+      <option>2月</option>
+    </optgroup>
+    <optgroup label="時刻選択">
+      <option>午前</option>
+      <option>午後</option>
+    </optgroup>
+  </select>
 </body>
+
 </html>
