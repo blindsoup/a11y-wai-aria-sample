@@ -9,6 +9,19 @@
 </head>
 
 <body>
+  <fieldset aria-label="タイムピッカー">
+    <select aria-label="hour">
+      <option value="--" selected=""></option>
+      <option value="00">00</option>
+      <option value="01">01</option>
+      <option value="02">02</option>
+    </select>
+    <span>:</span>
+    <select aria-label="min">
+      <option value=""></option>
+      <option value="00">00</option>
+    </select>
+  </fieldset>
   <span role="group" aria-label="group test2">
     <button type="button" aria-pressed="true">
       Foo
