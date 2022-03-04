@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <fieldset aria-label="タイムピッカー">
+  <fieldset aria-label="タイムピッカー" aria-describedby="hoge-error-hoge">
     <select aria-label="hour">
       <option value="--" selected=""></option>
       <option value="00">00</option>
@@ -22,6 +22,7 @@
       <option value="00">00</option>
     </select>
   </fieldset>
+  <div role="alert" id="hoge-error-hoge">error!error!</div>
   <span role="group" aria-label="group test2">
     <button type="button" aria-pressed="true">
       Foo
