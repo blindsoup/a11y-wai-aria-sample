@@ -9,19 +9,25 @@
 </head>
 
 <body>
-  <fieldset aria-label="タイムピッカー" aria-describedby="hoge-error-hoge">
-    <select aria-label="hour">
-      <option value="--" selected=""></option>
-      <option value="00">00</option>
-      <option value="01">01</option>
-      <option value="02">02</option>
-    </select>
-    <span>:</span>
-    <select aria-label="min">
-      <option value=""></option>
-      <option value="00">00</option>
-    </select>
-  </fieldset>
+  <button aria-describedby="h00n0">
+    <img src="#" alt="Add" />
+  </button>
+  <span id="h00n0">user onetwothree</span>
+  <div>
+    <fieldset aria-label="タイムピッカー" aria-describedby="hoge-error-hoge">
+      <select aria-label="hour">
+        <option value="--" selected=""></option>
+        <option value="00">00</option>
+        <option value="01">01</option>
+        <option value="02">02</option>
+      </select>
+      <span>:</span>
+      <select aria-label="min">
+        <option value=""></option>
+        <option value="00">00</option>
+      </select>
+    </fieldset>
+  </div>
   <div role="alert" id="hoge-error-hoge">error!error!</div>
   <span role="group" aria-label="group test2">
     <button type="button" aria-pressed="true">
