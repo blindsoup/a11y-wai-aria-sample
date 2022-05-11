@@ -434,7 +434,8 @@
   </div>
   <script>
     document.querySelector('#dialog-button').addEventListener('click', () => {
-      document.querySelector('[role=dialog]').focus();
+      // document.querySelector('[role=dialog]').focus();
+      document.querySelector('[role=dialog]').setAttribute('aria-modal', 'true')
     })
   </script>
 </body>
