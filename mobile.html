@@ -429,13 +429,16 @@
     </div>
     <div class="Box-sc-1a3lozy-0 Flex-sc-7aof78-0 styles__DialogFooter-sc-1eyssni-2 iHKdRE iLeSEu iTHkZa">
       <div class="ActionButtonsArea-sc-mvomeq-1 jAjCsg"><button class="Button-sc-jl6v62-0 kvmVkD">Apply</button><button
-          class="Button-sc-jl6v62-0 djfiJn">Cancel</button></div>
+          id="dialog-cancel" class="Button-sc-jl6v62-0 djfiJn">Cancel</button></div>
     </div>
   </div>
   <script>
     document.querySelector('#dialog-button').addEventListener('click', () => {
-      // document.querySelector('[role=dialog]').focus();
+      document.querySelector('[role=dialog]').focus();
       document.querySelector('[role=dialog]').setAttribute('aria-modal', 'true')
+    });
+    document.querySelector('#dialog-cancel').addEventListener('click', () => {
+      document.querySelector('#dialog-button').focus();
     })
   </script>
 </body>
