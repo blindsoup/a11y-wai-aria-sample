@@ -16,7 +16,16 @@
     <li><a href="#" id="link3">a link</a><button id="button3" type="button">既読３</button></li>
     <li><a id="link4" href="#"><img src="" alt="hoge">
         <h2>見出しスタイル</h2><span>テストスタイル</span>
+        <ul>
+          <li>
+            <p>test ppp</p><span>hoge</span><br />
+            <div>_</div>
+          </li>
+        </ul>
       </a><button id="button4" type="button">既読4</button></li>
+  </ul>
+  <ul tabindex="-1" id="ul-focus" role="list">
+    <li>通知なし</li>
   </ul>
   <button type="button" aria-haspopup="menu">menu</button>
   <div role="menu">
@@ -54,6 +63,9 @@
     });
     document.querySelector('#button3').addEventListener('click', () => {
       document.querySelector('#link4').focus()
+    });
+    document.querySelector('#button4').addEventListener('click', () => {
+      document.querySelector('#ul-focus').focus();
     })
   </script>
 </body>
