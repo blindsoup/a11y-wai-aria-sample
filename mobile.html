@@ -10,6 +10,25 @@
 
 <body>
   <h1>hoge</h1>
+  <ul role="list" style="list-style-type: none">
+    <li><button id="button1" type="button">既読１</button></li>
+    <li><a href="#">link</a><button id="button2" type="button">既読2</button></li>
+    <li><a href="#" id="link3">a link</a><button id="button3" type="button">既読３</button></li>
+    <li><a id="link4" href="#"><img src="" alt="hoge">
+        <h2>見出しスタイル</h2><span>テストスタイル</span>
+      </a><button id="button4" type="button">既読4</button></li>
+  </ul>
+  <button type="button" aria-haspopup="menu">menu</button>
+  <div role="menu">
+    <ul role="group" style="list-style-type:none">
+      <li role="none"><a href="#" role="menuitem">a1</a></li>
+    </ul>
+    <ul role="group" style="list-style-type:none">
+      <li role="none"><a href="#" role="menuitem">a2</a></li>
+    </ul>
+
+  </div>
+
   <button id="logout" type="button">logout</button>
   <p>underline</p>
   <div aria-hidden="true" aria-label="LogoutDialog" id="logoutdialog" aria-modal="true"
@@ -26,6 +45,15 @@
       const dialog = document.querySelector('#logoutdialog');
       dialog.setAttribute('aria-hidden', 'false');
       dialog.focus();
+    });
+    document.querySelector('#button1').addEventListener('click', () => {
+      document.querySelector('#button2').focus()
+    });
+    document.querySelector('#button2').addEventListener('click', () => {
+      document.querySelector('#link3').focus()
+    });
+    document.querySelector('#button3').addEventListener('click', () => {
+      document.querySelector('#link4').focus()
     })
   </script>
 </body>
